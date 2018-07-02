@@ -1,0 +1,53 @@
+﻿@model ProEntity.StudentSection
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddStudentToSection</title>
+</head>
+<body>
+    <div align="center">
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>Add Student to Section</legend>
+    
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.student, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    <label>Student Id</label>
+                    @Html.DropDownList("StuId", (List<SelectListItem>)ViewBag.Students, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.section, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    <label>Section Id</label>
+                    @Html.DropDownList("SecId", (List<SelectListItem>)ViewBag.Sections, new { htmlAttributes = new { @class = "form-control" } })
+                    <br>
+                    <input type="submit" value="Create" class="btn-success" />
+                </div>
+            </div>
+             <br>
+            <p>
+                
+            </p>
+        </fieldset>
+    }
+
+        @Html.ActionLink("Back to List", "StudentList")
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProEntity.Grade>
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Grade</title>
+</head>
+<body>
+    <div align="center">
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                <label>Student Id</label>
+            </th>
+            <th>
+                <label>Section Id</label>
+            </th>
+            <th>
+                <label>Grade</label>
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.grade)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditGrade", new { id=item.gradeId }) |
+            </td>
+        </tr>
+    }
+    
+    </table>
+        <p>@Html.ActionLink("Back", "StudentList")</p>
+        </div>
+</body>
+</html>

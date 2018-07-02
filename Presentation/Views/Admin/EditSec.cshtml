@@ -1,0 +1,56 @@
+﻿@model ProEntity.Section
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditSec</title>
+</head>
+<body>
+
+    <div align="center">
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>Edit Section</legend>
+    
+            @Html.HiddenFor(model => model.SecId)
+    
+
+            <div class="editor-field">
+                <label>Section Name</label>
+                @Html.EditorFor(model => model.SecName)
+                @Html.ValidationMessageFor(model => model.SecName)
+            </div>
+   
+            <div class="editor-field">
+                <label>Faculty Id</label>
+                @Html.EditorFor(model => model.FacultyId)
+                @Html.ValidationMessageFor(model => model.FacultyId)
+            </div>
+            <div class="editor-field">
+                <label>Course Id</label>
+                @Html.EditorFor(model => model.CourseId)
+                @Html.ValidationMessageFor(model => model.CourseId)
+            </div>
+    
+            <p>
+                <input type="submit" value="Save" class="btn-success"/>
+            </p>
+        </fieldset>
+    }
+        @Html.ActionLink("Back", "DetailsInCourse")
+    </div>
+</body>
+</html>

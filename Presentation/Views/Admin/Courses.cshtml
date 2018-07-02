@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ProEntity.Course>
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Courses</title>
+</head>
+<body>
+    <div align="center">
+    <h2>Courses</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.credit)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.credit)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditCourse", new { id=item.CourseId }) |
+                @Html.ActionLink("Sections", "DetailsInCourse", new { id=item.CourseId }) |
+                @Html.ActionLink("Delete", "DeleteCourse", new { id=item.CourseId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+        <p>@Html.ActionLink("Create New", "CreateCourse")</p>
+        <p>@Html.ActionLink("Back", "Index")</p>
+        </div>
+</body>
+</html>

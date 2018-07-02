@@ -1,0 +1,43 @@
+﻿@model ProEntity.Faculty
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateFac</title>
+</head>
+<body>
+    <div align="center">
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>Add Faculty</legend>
+    
+            <div class="editor-field">
+                <label>Name</label>
+                @Html.EditorFor(model => model.FacultyName)
+                @Html.ValidationMessageFor(model => model.FacultyName)
+            </div>
+
+            <div class="editor-field">
+                <label>Password</label>
+                @Html.EditorFor(model => model.FacultyPass)
+                @Html.ValidationMessageFor(model => model.FacultyPass)
+            </div>
+            <br />
+            <p>
+                <input type="submit" value="Create" class="btn-success"/>
+            </p>
+        </fieldset>
+    }
+        @Html.ActionLink("Back", "Faculty")
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿@model ProEntity.Faculty
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div align="center">
+    <fieldset>
+    <legend>Own Info</legend>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                <label>Id</label>
+            </th>
+            <th>
+                <label>Name</label>
+            </th>
+            <th></th>
+        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.FacultyId)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.FacultyName)
+                </td>
+                <td>
+                   
+                    @Html.ActionLink("Sections", "CourseSections")
+                </td>
+                </tr>
+        </table>
+    </fieldset>
+       
+    </div>
+</body>
+</html>

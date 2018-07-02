@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ProEntity.StudentSection>
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>StudentList</title>
+</head>
+<body>
+    <div align="center">
+
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                <label>Student Id</label>
+            </th>
+            <th>
+                <label>Section Id</label>
+            </th>
+
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecId)
+            </td>
+            
+        </tr>
+    }
+    
+    </table>
+            @Html.ActionLink("Add Student To Section", "AddStudentToSection")
+        <br>
+        @Html.ActionLink("Back", "DetailsInCourse")
+        
+        </div>
+</body>
+</html>

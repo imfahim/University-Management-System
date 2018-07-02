@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@RenderSection("title", false)</title>
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    @RenderSection("Scripts", false)
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @RenderSection("Styles", false)
+</head>
+<body>
+    <div class="col-sm-12">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" @Html.ActionLink("Home", "Index")</a>
+                </div>
+                
+
+                <div class="pull-right btn" style="align-content">
+                    <a>
+                    @if (Session["id"] != null)
+                    {
+                        @Html.ActionLink("Log Out", "LogOut") 
+                       
+                    }
+                        </a>
+                </div>
+                
+            </div>
+        </nav>
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-8">
+                
+
+                @RenderBody()
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+</div>
+</body>
+</html>

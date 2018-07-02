@@ -1,0 +1,38 @@
+﻿@model ProEntity.Admin
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <div align="center">
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>Edit Admin Password</legend>
+    
+            @Html.HiddenFor(model => model.AdminId)
+            <div class="editor-field">
+                <label>Input New Password </label>
+                @Html.EditorFor(model => model.APassword)
+                @Html.ValidationMessageFor(model => model.APassword)
+            </div>
+            <br />
+            <p>
+                <input type="submit" value="Save" class="btn-success"/>
+            </p>
+        </fieldset>
+    }
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

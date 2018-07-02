@@ -1,0 +1,53 @@
+﻿@model ProEntity.Course
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditCourse</title>
+</head>
+<body>
+    <div align="center">
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>Edit Course</legend>
+    
+            @Html.HiddenFor(model => model.CourseId)
+
+            <div class="editor-field">
+                <label>Name</label>
+                @Html.EditorFor(model => model.CourseName)
+                @Html.ValidationMessageFor(model => model.CourseName)
+            </div>
+
+            <div class="editor-field">
+                <label>Semester</label>
+                @Html.EditorFor(model => model.Semester)
+                @Html.ValidationMessageFor(model => model.Semester)
+            </div>
+            <div class="editor-field">
+                <label>Credit</label>
+                @Html.EditorFor(model => model.credit)
+                @Html.ValidationMessageFor(model => model.credit)
+            </div>
+            <p>
+                <input type="submit" value="Save" class="btn-success"/>
+            </p>
+        </fieldset>
+    }
+        @Html.ActionLink("Back to List", "Courses")
+    </div>
+</body>
+</html>

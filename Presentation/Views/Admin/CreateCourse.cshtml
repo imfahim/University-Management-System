@@ -1,0 +1,60 @@
+﻿@model ProEntity.Course
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateCourse</title>
+</head>
+<body>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>Course</legend>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CourseName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CourseName)
+                @Html.ValidationMessageFor(model => model.CourseName)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Semester)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Semester)
+                @Html.ValidationMessageFor(model => model.Semester)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.credit)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.credit)
+                @Html.ValidationMessageFor(model => model.credit)
+            </div>
+    
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

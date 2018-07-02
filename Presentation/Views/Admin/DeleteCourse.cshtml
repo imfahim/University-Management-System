@@ -1,0 +1,45 @@
+﻿@model ProEntity.Course
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DeleteCourse</title>
+</head>
+<body>
+    <div align="center">
+    <h3>Are you sure you want to delete this?</h3>
+    <fieldset>
+        <legend>Delete Course</legend>
+    
+        <div class="display-field">
+            <label>Course Name</label>
+            @Html.DisplayFor(model => model.CourseName)
+        </div>
+    
+        <div class="display-field">
+            <label>Semester</label>
+            @Html.DisplayFor(model => model.Semester)
+        </div>
+    
+        <div class="display-field">
+            <label>Credit</label>
+            @Html.DisplayFor(model => model.credit)
+        </div>
+    </fieldset>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <p>
+            <input type="submit" value="Delete" class="btn-danger"/> |
+            @Html.ActionLink("Back", "Courses")
+        </p>
+    }
+        </div>
+
+</body>
+</html>

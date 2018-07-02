@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProEntity.Admin>
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+<h2 align="center">Admin Panel</h2>
+<div align="center">
+    <div class="panel panel-default">
+        <p class="panel-heading">Admin</p>
+        <p>@Html.ActionLink("Create New Admin", "Create")</p>
+
+        <p>@Html.ActionLink("Edit My Password", "EditPass", new { id = Session["id"] })</p>
+    </div>
+    <div class="panel panel-default">
+    <p class="panel-heading">Faculty</p>
+    <p>@Html.ActionLink("Faculties", "Faculty")</p>
+     </div>
+    <div class="panel panel-default">
+        <p class="panel-heading">Course and Section</p>
+        <p>@Html.ActionLink("Courses", "Courses")</p>
+
+        <p>@Html.ActionLink("Add Section", "AddSection")</p>
+        </div>
+    <div class="panel panel-default">
+        <p class="panel-heading">Students</p>
+        <p>@Html.ActionLink("Student", "Student")</p>
+        <p>@Html.ActionLink("Reports", "Report")</p>
+        </div>
+
+    </div>
+
+
+

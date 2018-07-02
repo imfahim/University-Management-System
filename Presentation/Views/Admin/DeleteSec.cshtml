@@ -1,0 +1,45 @@
+﻿@model ProEntity.Section
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DeleteSec</title>
+</head>
+<body>
+    <div align="center">
+    <h3>Are you sure you want to delete this?</h3>
+    <fieldset>
+        <legend>Delete Section</legend>
+    
+
+        <div class="display-field">
+            <label>Section Name</label>
+            @Html.DisplayFor(model => model.SecName)
+        </div>
+        <div class="display-field">
+            <label>Faculty Id</label>
+            @Html.DisplayFor(model => model.FacultyId)
+        </div>
+        <div class="display-field">
+            <label>Course Id</label>
+            @Html.DisplayFor(model => model.CourseId)
+        </div>
+    </fieldset>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <p>
+            <input type="submit" value="ConfirmDelete1" class="btn-danger"/> |
+            @Html.ActionLink("Back", "DetailsInCourse")
+        </p>
+
+    }
+</div>
+
+</body>
+</html>

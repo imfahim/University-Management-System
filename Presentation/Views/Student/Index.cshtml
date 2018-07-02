@@ -1,0 +1,43 @@
+﻿@model ProEntity.Student
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<div align="center">
+    <fieldset class="center-block">
+        <legend>Own Info</legend>
+
+        <div>
+            <table class="table table-bordered">
+                <tr>
+                    <th>
+                        <label>Student Id</label>
+                    </th>
+                    <th>
+                        <label>Name</label>
+                    </th>
+                    <th>
+                        <label>CGPA</label>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.StuId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.StuName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Cgpa)
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </fieldset>
+    <p>
+
+        @Html.ActionLink("Courses", "Courses")
+
+    </p>
+</div>

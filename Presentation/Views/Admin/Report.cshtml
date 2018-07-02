@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProEntity.Report>
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Report</title>
+</head>
+<body>
+    <div align="center">
+        <h2>Report</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                <label>Student Id</label>
+            </th>
+            <th>
+                <label>Comment</label>
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteRep", new { id=item.RId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+        <p>@Html.ActionLink("Back", "Index")</p>
+        </div>
+</body>
+</html>

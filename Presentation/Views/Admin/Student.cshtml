@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ProEntity.Student>
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Student</title>
+</head>
+<body>
+    <div align="center">
+    <h2>Students</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StuId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StuName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AttendancePercentage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cgpa)
+            </th>
+            <th></th>
+
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttendancePercentage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cgpa)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteStu", new { id = item.StuId})
+            </td>
+        </tr>
+    }
+    
+    </table>
+        <p>
+            @Html.ActionLink("Create New", "CreateStudent")
+            @Html.ActionLink("Back", "Index")
+        </p>
+        </div>
+</body>
+</html>

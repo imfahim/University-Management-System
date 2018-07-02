@@ -1,0 +1,30 @@
+﻿@model ProEntity.Admin
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2 align="center">Create</h2>
+<div align="center">
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Admin</legend>
+        <div class="editor-field">
+            <label>Input Password</label>
+            @Html.EditorFor(model => model.APassword)
+            @Html.ValidationMessageFor(model => model.APassword)
+        </div>
+        <br />
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+    @Html.ActionLink("Back", "Index")
+</div>
+
+

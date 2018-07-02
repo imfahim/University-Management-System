@@ -1,0 +1,40 @@
+﻿@model ProEntity.StudentSection
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DropCourse</title>
+</head>
+<body>
+    <div align="center">
+    <h3>Are you sure you want to delete this?</h3>
+    <fieldset>
+        <legend>Drop Course</legend>
+
+        <div class="display-field">
+            <label>Student Id</label>
+            @Html.DisplayFor(model => model.StuId)
+        </div>
+
+        <div class="display-field">
+            <label>Section Id</label>
+            @Html.DisplayFor(model => model.SecId)
+        </div>
+    </fieldset>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <p>
+            <input type="submit" value="Delete" class="btn-danger"/> |
+            @Html.ActionLink("Back", "StudentList")
+        </p>
+    }
+        </div>
+
+</body>
+</html>

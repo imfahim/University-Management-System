@@ -1,0 +1,30 @@
+﻿@model ProEntity.Grade
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Grades</title>
+</head>
+<body>
+    <div align="center">
+
+        <fieldset>
+            <legend>Grades</legend>
+
+            <div class="display-field">
+                <label>Mark </label>
+                @Html.DisplayFor(model => model.grade)
+            </div>
+        </fieldset>
+        <p>
+            @Html.ActionLink("Back", "Courses")
+        </p>
+    </div>
+</body>
+</html>

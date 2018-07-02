@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ProEntity.Attendence>
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Attendence</title>
+</head>
+<body>
+    <div align="center">
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    <label>Course Id</label>
+                </th>
+                <th>
+                    <label>Student Id</label>
+                </th>
+                <th>
+                    <label>Section Id</label>
+                </th>
+                <th>
+                    <label>Attend</label>
+                </th>
+                <th>
+                    <label>Date</label>
+                </th>
+                <th>
+                    <label>Attendance Counter</label>
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CourseId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SecId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Attend)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AttendCounter)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Present/Absent", "GiveAttend", new { id = item.AttId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>

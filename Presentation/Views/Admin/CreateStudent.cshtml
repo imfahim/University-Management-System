@@ -1,0 +1,47 @@
+﻿@model ProEntity.Student
+
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateStudent</title>
+</head>
+<body>
+    <div align="center">
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>Create Student</legend>
+    
+
+            <div class="editor-field">
+                <label>Add Password</label>
+                @Html.EditorFor(model => model.StuPass)
+                @Html.ValidationMessageFor(model => model.StuPass)
+            </div>
+    
+            <div class="editor-field">
+                <label>Student Name</label>
+                @Html.EditorFor(model => model.StuName)
+                @Html.ValidationMessageFor(model => model.StuName)
+            </div>
+            <p>
+                <input type="submit" value="Create" class="btn-success"/>
+            </p>
+        </fieldset>
+    }
+        @Html.ActionLink("Back", "Student")
+    </div>
+</body>
+</html>
